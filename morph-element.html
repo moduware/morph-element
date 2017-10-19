@@ -68,7 +68,8 @@
        * @return {Object} - returns the computed style based on if ShadyCSS is used or not 
        */
       getStyleShadyOrDOM() {
-        if (ShadyCSS) {
+        const supportsShadowDOMV1 = !!HTMLElement.prototype.attachShadow;
+        if (!supportsShadowDOMV1) {
           return ShadyCSS.getComputedStyleValue(this, '--have-access-to-shared-colors');
         } else {
           return getComputedStyle(this, '--have-access-to-shared-colors');
