@@ -1,4 +1,4 @@
-<link rel="import" href="../bower_components/polymer/lib/legacy/class.html">
+<link rel="import" href="/bower_components/polymer/lib/legacy/class.html">
 
 <dom-module id="morph-element">
   <template>
@@ -56,8 +56,9 @@
        * @return {Boolean} - return true if style not equal to 'deepskyblue' meaning shared color file not connected and returns false otherwise
        */   
       checkIfSharedStylesConnected() {
-        let style = this.getStyleShadyOrDOM();
-        if(style != 'deepskyblue') {
+        let styleIncludedColor = this.getStyleShadyOrDOM();
+        
+        if(styleIncludedColor != 'deepskyblue') {
           console.warn('WARNING: You need to include morph-shared-colors if you want to use standard colors!');
           return false;
         }
@@ -68,7 +69,7 @@
        * @return {Object} - returns the computed style based on if ShadyCSS is used or not 
        */
       getStyleShadyOrDOM() {
-        if (ShadyCSS) {
+        if (ShadyCSS != null) {
           return ShadyCSS.getComputedStyleValue(this, '--have-access-to-shared-colors');
         } else {
           return getComputedStyle(this, '--have-access-to-shared-colors');
