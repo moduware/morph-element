@@ -57,7 +57,7 @@
        */   
       checkIfSharedStylesConnected() {
         let styleIncludedColor = this.getStyleShadyOrDOM();
-        
+        styleIncludedColor = styleIncludedColor.replace(/\s+/, '');
         if(styleIncludedColor != 'deepskyblue') {
           console.warn('WARNING: You need to include morph-shared-colors if you want to use standard colors!');
           return false;
@@ -69,10 +69,14 @@
        * @return {Object} - returns the computed style based on if ShadyCSS is used or not 
        */
       getStyleShadyOrDOM() {
-        if (ShadyCSS != null) {
+        let supportsShadowDOMV1 = !!HTMLElement.prototype.attachShadow;
+
+        if (typeof(ShadyCSS) != 'undefined') {
+          console.log('ShadyCSS.getComputedStyleValue');
           return ShadyCSS.getComputedStyleValue(this, '--have-access-to-shared-colors');
         } else {
-          return getComputedStyle(this, '--have-access-to-shared-colors');
+          console.log('getComputedStyle');
+          return getComputedStyle(this).getPropertyValue('--have-access-to-shared-colors');
         }
       }
 
