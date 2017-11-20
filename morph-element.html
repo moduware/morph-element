@@ -20,7 +20,7 @@
      * @polymer
      * @demo demo/index.html
      */
-    class MorphElement extends Polymer.Element {
+    class MorphElement extends (class extends Polymer.Element {} ) {
       static get is() { return 'morph-element'; }
       static get properties() {
         return {
