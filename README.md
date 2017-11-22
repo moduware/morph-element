@@ -1,21 +1,11 @@
-# \<morph-element\>
+## &lt;morph-element&gt;
 
-Parent for all of Polymorph Components that can detect current platform and other common behaviour
+Parent for all of Polymorph Components that can detect current platform and other common behavior.
 
-## Install the Polymer-CLI
+## Getting Started:
+For the information about how to clone the desired repository, running the local server and testing, please refer to this [link](https://github.com/moduware/polymorph-components/blob/master/INFO.md).
 
-First, make sure you have the [Polymer CLI](https://www.npmjs.com/package/polymer-cli) installed. Then run `polymer serve` to serve your element locally.
 
-## Viewing Your Element
+### Demo
 
-```
-$ polymer serve
-```
-
-## Running Tests
-
-```
-$ polymer test
-```
-
-Your application is already set up to be tested via [web-component-tester](https://github.com/Polymer/web-component-tester). Run `polymer test` to run your application's test suite locally.
+### Attributes
