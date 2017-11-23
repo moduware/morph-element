@@ -1,85 +1,74 @@
-<link rel="import" href="../polymer/polymer-element.html">
-
-<dom-module id="morph-element">
-  <template>
-    <style>
-    :host {
-      /* --have-access-to-shared-colors: var(--morph-shared-colors-connected, black); */
-      /* background-color: black; */
+ <script>
+/**
+  * `morph-element`
+  * Parent for all of Polymorph Components that can detect current platform and other common behaviour
+  *
+  * @customElement
+  * @polymer
+  * @demo demo/index.html
+  */
+var MorphElement = function(superClass) {
+  return class extends superClass {
+    constructor() {
+      super();
     }
-    </style>
 
-  </template>
+    static get properties() {
+      return {
+        platform: {
+          type: String,
+          reflectToAttribute: true,
+          value: function() {
+            let userAgent = navigator.userAgent || navigator.vendor || window.opera;
 
-  <script>
-    /**
-     * `morph-element`
-     * Parent for all of Polymorph Components that can detect current platform and other common behaviour
-     *
-     * @customElement
-     * @polymer
-     * @demo demo/index.html
-     */
-    class MorphElement extends (class extends Polymer.Element {} ) {
-      static get is() { return 'morph-element'; }
-      static get properties() {
-        return {
-          platform: {
-            type: String,
-            reflectToAttribute: true,
-            value: function() {
-              let userAgent = navigator.userAgent || navigator.vendor || window.opera;
-
-              // Windows Phone must come first because its UA also contains "Android"
-              if (/windows phone/i.test(userAgent)) {
-                return 'windows-phone';
-              }
-
-              if (/android/i.test(userAgent)) {
-                return 'android';
-              }
-
-              // iOS detection from: http://stackoverflow.com/a/9039885/177710
-              if (/iPad|iPhone|iPod/.test(userAgent) && !window.MSStream) {
-                return 'ios';
-              }
-
-              return 'unknown';
+            // Windows Phone must come first because its UA also contains "Android"
+            if (/windows phone/i.test(userAgent)) {
+              return 'windows-phone';
             }
+
+            if (/android/i.test(userAgent)) {
+              return 'android';
+            }
+
+            // iOS detection from: http://stackoverflow.com/a/9039885/177710
+            if (/iPad|iPhone|iPod/.test(userAgent) && !window.MSStream) {
+              return 'ios';
+            }
+
+            return 'unknown';
           }
-        };
-      }
-
-      /**
-       * checkIfSharedStylesConnected
-       *
-       * @return {Boolean} - return true if style not equal to 'deepskyblue' meaning shared color file not connected and returns false otherwise
-       */   
-      checkIfSharedStylesConnected() {
-        let styleIncludedColor = this.getStyleShadyOrDOM();
-        styleIncludedColor = styleIncludedColor.replace(/\s+/, '');
-        if(styleIncludedColor != 'deepskyblue') {
-          console.warn('WARNING: You need to include morph-shared-colors if you want to use standard colors!');
-          return false;
         }
-        return true;
-      }
-
-      /**
-       * @return {Object} - returns the computed style based on if ShadyCSS is used or not 
-       */
-      getStyleShadyOrDOM() {
-        if (typeof(ShadyCSS) != 'undefined') {
-          console.log('ShadyCSS.getComputedStyleValue');
-          return ShadyCSS.getComputedStyleValue(this, '--have-access-to-shared-colors');
-        } else {
-          console.log('getComputedStyle');
-          return getComputedStyle(this).getPropertyValue('--have-access-to-shared-colors');
-        }
-      }
-
+      };
     }
 
-    window.customElements.define(MorphElement.is, MorphElement);
-  </script>
-</dom-module>
+    /**
+    * checkIfSharedStylesConnected
+    *
+    * @return {Boolean} - return true if style not equal to 'deepskyblue' meaning shared color file not connected and returns false otherwise
+    */   
+    checkIfSharedStylesConnected() {
+      let styleIncludedColor = this.getStyleShadyOrDOM();
+      styleIncludedColor = styleIncludedColor.replace(/\s+/, '');
+      if(styleIncludedColor != 'deepskyblue') {
+        console.warn('WARNING: You need to include morph-shared-colors if you want to use standard colors!');
+        return false;
+      }
+      return true;
+    }
+
+    /**
+    * @return {Object} - returns the computed style based on if ShadyCSS is used or not 
+    */
+    getStyleShadyOrDOM() {
+      if (typeof(ShadyCSS) != 'undefined') {
+        console.log('ShadyCSS.getComputedStyleValue');
+        return ShadyCSS.getComputedStyleValue(this, '--have-access-to-shared-colors');
+      } else {
+        console.log('getComputedStyle');
+        return getComputedStyle(this).getPropertyValue('--have-access-to-shared-colors');
+      }
+    }
+
+  }
+};
+</script>
