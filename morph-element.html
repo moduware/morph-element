@@ -61,10 +61,8 @@ var MorphElement = function(superClass) {
     */
     getStyleShadyOrDOM() {
       if (typeof(ShadyCSS) != 'undefined') {
-        console.log('ShadyCSS.getComputedStyleValue');
         return ShadyCSS.getComputedStyleValue(this, '--have-access-to-shared-colors');
       } else {
-        console.log('getComputedStyle');
         return getComputedStyle(this).getPropertyValue('--have-access-to-shared-colors');
       }
     }
