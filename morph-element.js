@@ -1,4 +1,3 @@
- <script>
 /**
   * `morph-element`
   * Parent for all of Polymorph Components that can detect current platform and other common behaviour
@@ -69,4 +68,3 @@ var MorphElement = function(superClass) {
 
   }
 };
-</script>
