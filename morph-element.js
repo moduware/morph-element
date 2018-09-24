@@ -68,3 +68,5 @@ var MorphElement = function(superClass) {
 
   }
 };
+
+export { MorphElement };
