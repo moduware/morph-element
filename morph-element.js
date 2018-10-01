@@ -3,7 +3,6 @@
   * Parent for all of Polymorph Components that can detect current platform and other common behaviour
   *
   * @customElement
-  * @polymer
   * @demo demo/index.html
   */
 var MorphElement = function(superClass) {
