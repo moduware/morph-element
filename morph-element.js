@@ -1,3 +1,5 @@
+import { dedupingMixin } from '@polymer/polymer/lib/utils/mixin.js';
+
 /**
   * `morph-element`
   * Parent for all of Polymorph Components that can detect current platform and other common behaviour
@@ -5,7 +7,7 @@
   * @customElement
   * @demo demo/index.html
   */
-window.MorphElement = function(superClass) {
+let internalMorphElement = function(superClass) {
   return class extends superClass {
     constructor() {
       super();
@@ -68,4 +70,4 @@ window.MorphElement = function(superClass) {
   }
 };
 
-export { MorphElement };
+export const MorphElement = dedupingMixin(internalMorphElement);
