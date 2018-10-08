@@ -1,0 +1,26 @@
+{
+  "description": "Parent for all of Polymorph Components that can detect current platform and other common behaviour",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/moduware/morph-element"
+  },
+  "name": "@polymer/morph-element",
+  "version": "1.0.0",
+  "scripts": {
+    "start": "polymer serve --npm --module-resolution=node"
+  },
+  "main": "morph-element.js",
+  "contributors": [
+    "Clint Pijuan",
+    "Alex Chernov"
+  ],
+  "license": "Apache-2.0",
+  "dependencies": {
+    "@polymer/polymer": "^3.0.0"
+  },
+  "devDependencies": {
+    "@polymer/iron-demo-helpers": "^3.0.0-pre.18",
+    "wct-browser-legacy": "^1.0.1",
+    "@webcomponents/webcomponentsjs": "^2.0.0"
+  }
+}

@@ -1,10 +1,8 @@
- <script>
 /**
   * `morph-element`
   * Parent for all of Polymorph Components that can detect current platform and other common behaviour
   *
   * @customElement
-  * @polymer
   * @demo demo/index.html
   */
 window.MorphElement = function(superClass) {
@@ -69,4 +67,5 @@ window.MorphElement = function(superClass) {
 
   }
 };
-</script>
+
+export { MorphElement };
