@@ -4,7 +4,7 @@
     "type": "git",
     "url": "https://github.com/moduware/morph-element"
   },
-  "name": "@polymer/morph-element",
+  "name": "@moduware/morph-element",
   "version": "1.0.0",
   "scripts": {
     "start": "polymer serve --npm --module-resolution=node"
