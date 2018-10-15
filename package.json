@@ -7,7 +7,8 @@
   "name": "@moduware/morph-element",
   "version": "1.0.0",
   "scripts": {
-    "start": "polymer serve --npm --module-resolution=node"
+    "start": "polymer serve --npm --module-resolution=node",
+    "test": "wct"
   },
   "main": "morph-element.js",
   "contributors": [
@@ -21,6 +22,7 @@
   "devDependencies": {
     "@polymer/iron-demo-helpers": "^3.0.0-pre.18",
     "wct-browser-legacy": "^1.0.1",
-    "@webcomponents/webcomponentsjs": "^2.0.0"
+    "@webcomponents/webcomponentsjs": "^2.0.0",
+    "wct-istanbub": "^0.2.7"
   }
 }
